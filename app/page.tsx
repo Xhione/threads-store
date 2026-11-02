@@ -1,8 +1,9 @@
+import Hero from "@/components/home/Hero";
+
 export default function Home() {
   return (
     <main>
-      <h1>Threads</h1>
-      <p>Weclome</p>
+      <Hero />
     </main>
   );
 }

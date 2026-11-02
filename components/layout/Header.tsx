@@ -1,11 +1,16 @@
 import Link from "next/link";
-
+import { UserRound, ShoppingCart } from "lucide-react";
 const navigation = [
   { label: "Головна", href: "/" },
   { label: "Каталог", href: "/catalog" },
   { label: "Новинки", href: "/new" },
   { label: "Розпродаж", href: "/sale" },
   { label: "Про нас", href: "/about" },
+];
+
+const userActions = [
+  { label: "Профіль", href: "/profile", icon: UserRound },
+  { label: "Кошик", href: "/cart", icon: ShoppingCart },
 ];
 
 export default function Header() {
@@ -29,6 +34,23 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+        <div className="flex gap-8">
+          {userActions.map((action) => {
+            const Icon = action.icon;
+
+            return (
+              <Link
+                key={action.href}
+                href={action.href}
+                aria-label={action.label}
+                title={action.label}
+                className="flex border rounded-full h-10 w-10  items-center justify-center hover:bg-neutral-200"
+              >
+                <Icon size={26} strokeWidth={1.6} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </header>
   );
